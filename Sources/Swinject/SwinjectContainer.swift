@@ -427,3 +427,29 @@ extension SwinjectContainer: CustomStringConvertible {
 private extension SwinjectContainer {
     static let graphIdentifierKey = ServiceKey(serviceType: GraphIdentifier.self, argumentsType: SwinjectResolver.self)
 }
+
+
+// MARK: Registration
+
+extension SwinjectContainer {
+
+    /// Adds a registration for the specified service with the factory closure to specify how the service is resolved with dependencies.
+    ///
+    /// - Parameters:
+    ///   - serviceType: The service type to register.
+    ///   - name:        A registration name, which is used to differentiate from other registrations
+    ///                  that have the same service and factory types.
+    ///   - factory:     The closure to specify how the service type is resolved with the dependencies of the type.
+    ///                  It is invoked when the ``Container`` needs to instantiate the instance.
+    ///                  It takes a ``Resolver`` instance and 1 argument to inject dependencies to the instance,
+    ///                  and returns the instance of the component type for the service.
+    ///
+    /// - Returns: A registered `ServiceEntry` to configure more settings with method chaining.
+    @discardableResult public func register<Service, FirstArgument, each ArgumentType>(
+        _ serviceType: Service.Type,
+        name: String? = nil,
+        factory: @escaping (SwinjectResolver, FirstArgument, repeat each ArgumentType) -> Service
+    ) -> ServiceEntry<Service> {
+        return _register(serviceType, factory: factory, name: name)
+    }
+}
