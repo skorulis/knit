@@ -142,7 +142,7 @@ final class DuplicateRegistrationDetectorTests: XCTestCase {
             """
             Duplicate Registration Key
             Service type: String
-            Arguments type: Resolver
+            Arguments type: KnitResolver
             Name: `nil`
             """
         )
@@ -155,7 +155,7 @@ final class DuplicateRegistrationDetectorTests: XCTestCase {
             """
             Duplicate Registration Key
             Service type: Int
-            Arguments type: (Resolver, Bool)
+            Arguments type: (KnitResolver, Bool)
             Name: `nil`
             """
         )
@@ -168,7 +168,7 @@ final class DuplicateRegistrationDetectorTests: XCTestCase {
             """
             Duplicate Registration Key
             Service type: String
-            Arguments type: Resolver
+            Arguments type: KnitResolver
             Name: namedRegistration
             """
         )
