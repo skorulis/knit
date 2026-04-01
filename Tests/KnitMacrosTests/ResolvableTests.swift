@@ -368,6 +368,4 @@ final class ResolvableTests: XCTestCase {
         )
     }
 
-}
-
 */

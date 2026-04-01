@@ -6,7 +6,7 @@ import Foundation
 import Swinject
 
 /// Module assembly which only allows registering assemblies which target a particular resolver type.
-public final class ScopedModuleAssembler<TargetResolver> {
+public final class ScopedModuleAssembler<TargetResolver: Knit.Resolver> {
 
     public let internalAssembler: ModuleAssembler
 
